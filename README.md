@@ -106,6 +106,7 @@ This project is conducted by **Thu Thuy Nguyen - MSc. Transport Economics – TU
 
 If using this project for academic or educational purposes, please cite the report or credit the author.
 To read the detailed report, [click here](Detailed_analysis_Report.pdf)
+
 ---
 ## 🔚 Final Note
 This project reflects both my technical skills in R and my curiosity in applying data science to real-world problems. From wrangling messy data to generating insights through modeling and visualization, this was both a learning and exploratory process.
