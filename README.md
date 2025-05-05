@@ -10,7 +10,8 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 ## 📌 Project Overview
 
 - **Goal**: Explore Germany freight rail transport volume patterns over 13 years and forecast rail freight transport performance.
-- **Tools**: R, mlr3 ecosystem, and libraries (`tidyverse`, `mlr3`, `mlr3tuning`, `randomForest`, `xgboost`, `ggplot2`, `sf`, `tmap`,...)
+- **Tools**: R, mlr3 ecosystem, and libraries (`tidyverse`, `ggplot2`, `plotly`, `mlr3`, `caret`, `xgboost`, `iml`,...)
+- View all project code [here](Project_code_2608.R)
 ---
 
 ## ⚙️ Methods Overview
@@ -24,11 +25,6 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 ---
 
 ## 📁 1. ETL (Extract, Transform, Load)
-
-### 🔧 Libraries Used
-- `readr`, `data.table`, `dplyr` – for data loading and wrangling  
-- `sf`, `geojsonio`, `tmap` – for geographic data processing  
-
 ### 🎯 Key Tasks
 - Load and clean different datasets
 - Model data features
@@ -38,12 +34,8 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 ---
 
 ## 📊 2. Exploratory Data Analysis (EDA)
-
-### 🧰 Libraries Used
-- `ggplot2`, `summarytools`, `dplyr`
-
 ### 🎯 Goals
-- Understand summary statistics, variable distributions and outliers  
+- Understand summary statistics, variable distributions, and outliers  
 - Examine correlations and multicollinearity  
 
 ### 📈 Visual Outputs
@@ -59,10 +51,6 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 ---
 
 ## 🗺️ 3. Spatial & Temporal Visualizations
-
-### 🧰 Libraries Used
-- `ggplot2`, `sf`, `tmap`
-
 ### 🎯 Goals
 - Explore changes in transport patterns over time and space  
 
@@ -81,10 +69,6 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 ---
 
 ## 🤖 4. Machine Learning (ML) Pipeline
-
-### 🧰 Libraries Used
-- `mlr3`, `mlr3tuning`, `mlr3viz`, `xgboost`, `randomForest`
-
 ### 🎯 Key Steps
 - Frame as a regression problem
 - Train and tune different models: Linear Regression, Random Forest, XGBoost
@@ -121,7 +105,7 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 This project is conducted by **Thu Thuy Nguyen - MSc. Transport Economics – TU Dresden, Germany**
 
 If using this project for academic or educational purposes, please cite the report or credit the author.
-To read in detailed report, [click here](Detailed_analysis_Report.pdf)
+To read the detailed report, [click here](Detailed_analysis_Report.pdf)
 
 
 ---
