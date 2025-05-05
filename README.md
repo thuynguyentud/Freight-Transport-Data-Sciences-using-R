@@ -1,77 +1,127 @@
-# 🚆 Freight Rail Transport Analysis & Forecasting in Germany (2011–2023) using R
+# 🚆 Freight Transport Analysis & Forecasting in Germany using R
 
-This project is a part of module Application in Data Analytics during my master degree at TU Dresden, Germany. This showcases an end-to-end data science workflow in R — from data cleaning to forecasting transport volume. The dataset used were collacted from various public dataset in [
- - Statistisches Bundesamt]
-(https://www.destatis.de/DE/Home/_inhalt.html) 
+This project was developed as part of the **Applications in Data Analytics** module during my master's program at **TU Dresden, Germany**. 
+It demonstrates an end-to-end data science workflow in **R** — from data cleaning and exploration to forecasting freight rail transport performance using machine learning models.
+
+**Data Sources**: Public datasets from [German Federal Statistical Office](https://www.destatis.de/DE/Home/_inhalt.html). Access cleaned datasets by me [here](data)
+
+---
 
 ## 📌 Project Overview
-- **Goal:** Exploring transport vollume transport pattern over the period of over 10 years and Forecast transport volume (e.g., freight, passengers) using historical data
-- **Language**: R
-- **Libraries**: `tidyverse`, `mlr3`, `mlr3tuning`, `xgboost`, `randomForest`, `ggplot2`, `sf`, `tmap`
-- **ML Techniques**: Nested resampling, feature selection, hyperparameter tuning
 
-## 📈 Methods
-- Data Extract, Transform, and Load (ETL)
-- Exploratory Data Analysis (EDA)
-- Spatial & Temporal Data Visualization
-- Machine Learning model development
-- Machine Learning model optimization and Interpretation 
+- **Goal**: Explore Germany freight rail transport volume patterns over 13 years and forecast rail freight transport performance.
+- **Tools**: R, mlr3 ecosystem, and libraries (`tidyverse`, `mlr3`, `mlr3tuning`, `randomForest`, `xgboost`, `ggplot2`, `sf`, `tmap`,...)
+---
+
+## ⚙️ Methods Overview
+
+1. Data Extraction, Transformation, and Loading (ETL)
+2. Exploratory Data Analysis (EDA)
+3. Spatial & Temporal Visualization
+4. Machine Learning Modeling
+5. Model Interpretation & Evaluation
+
+---
 
 ## 📁 1. ETL (Extract, Transform, Load)
+
 ### 🔧 Libraries Used
-- `readr`, `data.table`, `dplyr` – Data loading & manipulation
-- `sf`, `tmap`, `geojsonio` – Spatial data handling
+- `readr`, `data.table`, `dplyr` – for data loading and wrangling  
+- `sf`, `geojsonio`, `tmap` – for geographic data processing  
 
-### 🎯 Tasks & Goals
-- Load historical freight transport data (2011–2023)
-- Merge with GDP and industry production indices
-- Normalize inconsistent formats and encode categorical variables
-- Filter origin-destination pairs with consistent transport across all 13 years
-- Remove missing entries and irrelevant columns
+### 🎯 Key Tasks
+- Load and clean different datasets
+- Model data featuers
 
-### ✅ Outcomes
-- Clean dataset with 11,726 observations and 11 features
-- Features include volume, distance, GDP (origin/destination), and sectoral indices
+### ✅ Outcome
+- Final dataset: 11,726 observations with 11 features (columns)
+---
+
 ## 📊 2. Exploratory Data Analysis (EDA)
 
 ### 🧰 Libraries Used
-- `ggplot2`, `dplyr`, `summarytools`
+- `ggplot2`, `summarytools`, `dplyr`
 
-### 🔍 Tasks & Goals
-- Describe transport performance and volume distributions
-- Detect outliers and assess feature ranges
-- Analyze correlations and multicollinearity between variables
+### 🎯 Goals
+- Understand summary statistics, variable distributions and outliers  
+- Examine correlations and multicollinearity  
 
-### ✅ Outcomes
-- Identified key contributing goods (10 types = ~75% of total volume)
-- Strong correlation between `rail_volume_ton` and target (`transport_performance`)
-- Minimal missing data and no extreme outliers affecting modeling
+### 📈 Visual Outputs
 
-## 🗺️ 3. Visualization
+#### 📦 Boxplots of Numerical Variables  
+![Boxplot](visualization/boxplot.png)  
+*Visualizes spread and outliers in data features*
+
+#### 🔍 Correlation Matrix  
+![Correlation Matrix](visualization/correlation_matrix.png)  
+*Highlights strong correlations between features*
+
+---
+
+## 🗺️ 3. Spatial & Temporal Visualizations
 
 ### 🧰 Libraries Used
-- `ggplot2`, `tmap`, `sf`, `gridExtra`
+- `ggplot2`, `sf`, `tmap`
 
-### 🔍 Tasks & Goals
-- Visualize temporal trends by goods over years
-- Map spatial patterns by origin/destination
-- Highlight active transport routes (combined time-space analysis)
+### 🎯 Goals
+- Explore changes in transport patterns over time and space  
 
-### ✅ Outcomes
-- Identified temporal drops (e.g., 2018 automotive peak)
-- Spatial hotspots: Düsseldorf, Braunschweig, Arnsberg
-- Routes like Düsseldorf → Sachsen-Anhalt show 13-year consistency
+#### ⏳ Temporal Trends by Goods  
+![Temporal Trend](visualization/temporal_change.png)  
+*Shows yearly transport performance of top 10 goods*
 
-📸 _Example plots:_
+#### 🗺️ Spatial Distribution of Transport  
+![Map](visualization/map_graph.png)  
+*Visualizes Regional transport intensity in 2023 (e.g. Düsseldorf, Braunschweig)*
 
-![Goods Trend Over Time](images/goods_trend_over_time.png)
-*Fig: Transport performance of top goods over 13 years*
+#### 🔥 Route Activity Heatmap  
+![Heatmap](visualization/heatmap.png)  
+*Highlights routes with consistent yearly activity over 13 years*
 
-![Transport Heatmap](images/transport_heatmap.png)
-*Fig: Year-round active transport routes for coal/lignite*
+---
+
+## 🤖 4. Machine Learning (ML) Pipeline
+
+### 🧰 Libraries Used
+- `mlr3`, `mlr3tuning`, `mlr3viz`, `xgboost`, `randomForest`
+
+### 🎯 Key Steps
+- Frame as a regression problem
+- Train and tune different models: Linear Regression, Random Forest, XGBoost
+- Perform nested resampling for unbiased validation
+- Perform Feature selection and ML models' hyperparameter tuning to increase prediction performance
+
+### 📉 Performance Metrics
+
+| Model        | RMSE (tkm) | MAE (tkm) | MAPE (%) | R²     |
+|--------------|------------|-----------|----------|--------|
+| RF (Tuned)   | 10.18M     | 3.36M     | **1.03** | 0.969  |
+| XGB (Tuned)  | 7.91M      | 2.64M     | **6.42** | 0.981  |
+
+---
+
+## 🧠 5. Model Inspection & Interpretation
+
+### 🎯 Goals
+- Understand the influence of top features to verify the model's accuracy 
+- Evaluate model behavior and possible biases  
+
+#### 📉 Predicted vs Actual Scatterplot  
+![Scatterplot](visualization/scatter_plot.png)  
+*Visual comparison of predicted vs actual transport performance*
+
+#### 📊 Feature Effects (PDP & ICE)  
+![Feature Effect](visualization/feature_effect.png)  
+*Partial dependence and individual conditional effects for rail volume*
+
+---
+
+## 📖 Citation & Acknowledgment
+
+This project is based on a seminar paper by **Thu Thuy Nguyen - MSc. Transport Economics – TU Dresden, Germany**
+
+If using this project for academic or educational purposes, please cite the report or credit the author.
+To read in detailed report, [click here](Detailed_analysis_Report.pdf)
 
 
-## 📖 Citation 
-Checkout detailed project report for deeper understanding here, and if using this project for academic purposes, please cite the original seminar paper or credit the author via GitHub.
-**Thu Thuy Nguyen** - MSc. Transport Economics – TU Dresden, Germany
-
+---
