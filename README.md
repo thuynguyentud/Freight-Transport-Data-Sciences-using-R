@@ -31,7 +31,7 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 
 ### 🎯 Key Tasks
 - Load and clean different datasets
-- Model data featuers
+- Model data features
 
 ### ✅ Outcome
 - Final dataset: 11,726 observations with 11 features (columns)
@@ -118,7 +118,7 @@ It demonstrates an end-to-end data science workflow in **R** — from data clean
 
 ## 📖 Citation & Acknowledgment
 
-This project is based on a seminar paper by **Thu Thuy Nguyen - MSc. Transport Economics – TU Dresden, Germany**
+This project is conducted by **Thu Thuy Nguyen - MSc. Transport Economics – TU Dresden, Germany**
 
 If using this project for academic or educational purposes, please cite the report or credit the author.
 To read in detailed report, [click here](Detailed_analysis_Report.pdf)
